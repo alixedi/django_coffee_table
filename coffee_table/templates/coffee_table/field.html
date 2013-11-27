@@ -1,0 +1,40 @@
+{% load coffee_table humanize %}
+
+{% with field_type=field|get_field_type field_value=object|get_field_value:field.name %}
+
+{% if field_type == 'EmailField' or field_type == 'URLField' %}
+{{ field_value|urlize }}
+
+{% elif field_type == 'IPAddressField' or field_type == 'GenericIPAddressField' %}
+<a href="http://{{ field_value }}">{{ field_value }}</a>
+
+{% elif field_type == 'FileField' %}
+<span style="padding-left:20px"><a href="{{ MEDIA_URL}}{{ field_value }}"><i class="icon-file"></i></a></span>
+
+{% elif field_type == 'ImageField' %}
+<img src="{{ MEDIA_URL }}{{ field_value }}" width=50 alt="" />
+
+{% elif field_type == 'BooleanField' or field_type == 'NullBooleanField' %}
+<span style="padding-left:20px"><i {% if field_value == True %}class="icon-ok"{% elif field_value == False %}class="icon-remove"{% else %}class="icon-question"{% endif %}></i></span>
+
+{% elif field_type == 'SmallIntegerField' or field_type == 'IntegerField' or field_type == 'BigIntegerField' or field_type == 'PositiveIntegerField' or field_type == 'PositiveSmallIntegerField' %}
+<!-- TODO: Identify situations where we ought to use intword-->
+<span class="pull-right">{{ field_value|intcomma }}</span>
+
+{% elif field_type == 'FloatField' or field_type == 'DecimalField' %}
+<span class="pull-right">{{ field_value|floatformat:-3 }}</span>
+
+<!-- TODO: Can we make the date/time fields time-zone-aware? -->
+<!-- TODO: Identify situations where we ought to use naturalday and naturaltime-->
+{% elif field_type == 'DateTimeField' %}
+{{ field_value|date:'d/m/y Hi' }}
+{% elif field_type == 'DateField' %}
+{{ field_value|date:'d/m/y' }}
+{% elif field_type == 'TimeField' %}
+{{ field_value|date:'Hi' }}
+
+{% else %}
+{{ field_value }}
+{% endif %}
+
+{% endwith %}

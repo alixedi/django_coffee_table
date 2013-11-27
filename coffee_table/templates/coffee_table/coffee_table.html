@@ -1,0 +1,49 @@
+{% load coffee_table pagination_tags sorting %}
+
+{% auto_sort object_list %}
+{% autopaginate object_list 10 %}
+
+<div class="table-collapse" style="overflow:auto">
+    <table class="table table-condensed table-bordered table-hover">
+        {% for object in object_list %}
+        {% if forloop.first %}
+        <thead>
+            <tr>
+                <th class="select"><input type="checkbox"></th>
+                {% for field in fields %}
+                    {% ifnotequal field|get_field_type 'AutoField'  %}
+                        <th>
+                            {% sort_link field.verbose_name|title field.name %}
+                            <sup>
+                                {% if not field.help_text == '' %}
+                                <a href="#" data-toggle="tooltip" title="{{ field.help_text }}">?</a>
+                                {% endif %}
+                            </sup>
+                        </th>
+                    {% endifnotequal %}
+                {% endfor %}
+                {% comment %}
+                Extra column header/s
+                {% endcomment %}
+                {% include 'coffee_table/extra_headers.html' %}
+            </tr>
+        </thead>
+        <tbody>
+        {% endif %}
+            <tr>
+                <td><input type="checkbox" name="action-select" value="{{ object.pk }}"></td>
+                {% for field in fields %}
+                    {% if field|get_field_type != 'AutoField' %}
+                        <td>{% include 'coffee_table/field.html' %}</td>
+                    {% endif %}
+                {% endfor %}
+                {% comment %}
+                Extra column column/s
+                {% endcomment %}
+                {% include 'coffee_table/extra_columns.html' %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% paginate %}
