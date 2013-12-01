@@ -7,3 +7,4 @@ django-nose>=1.2
 # Additional test requirements go here
 django-pagination
 django-sort
+django-tag-parser

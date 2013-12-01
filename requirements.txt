@@ -3,3 +3,4 @@ django>=1.5.1
 # Additional requirements go here
 django-pagination
 django-sort
+django-tag-parser
