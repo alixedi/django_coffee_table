@@ -4,13 +4,13 @@ django_coffee_table
 
 ..
 	.. image:: https://badge.fury.io/py/django_coffee_table.png
-	    :target: http://badge.fury.io/py/django_coffee_table
-	    
+		:target: http://badge.fury.io/py/django_coffee_table
+		
 	.. image:: https://travis-ci.org/alixedi/django_coffee_table.png?branch=master
-	        :target: https://travis-ci.org/alixedi/django_coffee_table
+			:target: https://travis-ci.org/alixedi/django_coffee_table
 	
 	.. image:: https://pypip.in/d/django_coffee_table/badge.png
-	        :target: https://crate.io/packages/django_coffee_table?version=latest
+			:target: https://crate.io/packages/django_coffee_table?version=latest
 
 
 Control of tables in templates sans BS.
@@ -45,8 +45,8 @@ Read on:
 5. Advanced usage::
 
 	{% coffee_table object_list field_names='name, content_type' 
-			    				paginate_by='10' 
-							    table_class='table table-condensed' 
-							    checkbox_column=True 
-							    primary_key_column=True 
-							    help_text=True %}
+								paginate_by='10' 
+								table_class='table table-condensed' 
+								checkbox_column=True 
+								primary_key_column=True 
+								help_text=True %}
