@@ -1,30 +1,29 @@
-from django.template import Context
 from django.template.loader import get_template
-from django import template
+from django.template import Library
+from tag_parser.basetags import BaseNode
+from tag_parser import template_tag
 
+register = Library()
 
-register = template.Library()
+@template_tag(register, 'coffee_table2')
+class CoffeeTableNode(BaseNode):
+    max_args = 1
+    allowed_kwargs = ('field_names', 'paginate_by', 'table_class', 
+                      'checkbox_column', 'primary_key_column', 'help_text')
 
-@register.simple_tag
-def coffee_table(request, object_list, field_names=None):
-    """Render a table from given queryset"""
-    all_fields = object_list.model._meta.fields
-    if field_names is None:
-        field_names = [field.name for field in all_fields]
-    else:
-        field_names = field_names.split(',')
-    fields = []
-    for field_name in field_names:
-        field_name = field_name.strip()
-        for field in all_fields:
-            if field.name == field_name:
-                fields.append(field)
-    return get_template("coffee_table/coffee_table.html").render(
-        Context({
-            'request': request,
-            'object_list': object_list,
-            'fields': fields
-        }))
+    def render_tag(self, context, *tag_args, **tag_kwargs):
+        (object_list,) = tag_args
+        context['object_list'] = object_list
+        meta = object_list.model._meta
+        try:
+            fns = tag_kwargs['field_names'].split(',')
+            fs = [meta.get_field_by_name(fn.strip())[0] for fn in fns]
+            context['fields'] = fs
+        except:
+            print meta
+            context['fields'] = meta.fields
+        context.update(tag_kwargs)
+        return get_template("coffee_table/coffee_table.html").render(context)
 
 @register.filter
 def get_field_type(field):
@@ -45,7 +44,4 @@ def get_field_value(obj, field_name):
     Fields here refer to field of object. To be used in 
     ListView.
     """
-    related_names = field_name.split('__')
-    for related_name in related_names:
-        obj = getattr(obj, related_name, None)
-    return obj
+    return getattr(obj, field_name, None)

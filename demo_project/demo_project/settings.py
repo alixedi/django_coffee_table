@@ -132,6 +132,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'sorting',
     'linaro_django_pagination',
+    'tag_parser',
     'coffee_table',
 )
 
