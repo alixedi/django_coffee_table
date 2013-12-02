@@ -5,7 +5,7 @@ from tag_parser import template_tag
 
 register = Library()
 
-@template_tag(register, 'coffee_table2')
+@template_tag(register, 'coffee_table')
 class CoffeeTableNode(BaseNode):
     """Given a queryset and a good many optional configurations,
     renders the HTML for a table""" 
