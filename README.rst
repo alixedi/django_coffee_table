@@ -2,15 +2,14 @@
 django_coffee_table
 =============================
 
-..
-    .. image:: https://badge.fury.io/py/django_coffee_table.png
-        :target: http://badge.fury.io/py/django_coffee_table
-        
-    .. image:: https://travis-ci.org/alixedi/django_coffee_table.png?branch=master
-            :target: https://travis-ci.org/alixedi/django_coffee_table
+.. image:: https://badge.fury.io/py/django_coffee_table.png
+    :target: http://badge.fury.io/py/django_coffee_table
     
-    .. image:: https://pypip.in/d/django_coffee_table/badge.png
-            :target: https://crate.io/packages/django_coffee_table?version=latest
+.. image:: https://travis-ci.org/alixedi/django_coffee_table.png?branch=master
+        :target: https://travis-ci.org/alixedi/django_coffee_table
+
+.. image:: https://pypip.in/d/django_coffee_table/badge.png
+        :target: https://crate.io/packages/django_coffee_table?version=latest
 
 
 Control of tables in templates sans BS.
