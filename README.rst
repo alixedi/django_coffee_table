@@ -43,7 +43,7 @@ Read on:
 
 5. Advanced usage::
 
-    {% coffee_table object_list field_names='name, content_type' 
+    {% coffee_table object_list field_accessors='name, content_type' 
                                 paginate_by='10' 
                                 table_class='table table-condensed' 
                                 checkbox_column=True 

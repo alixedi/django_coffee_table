@@ -12,13 +12,15 @@ class CoffeeTableNode(BaseNode):
     """Given a queryset and a good many optional configurations,
     renders the HTML for a table""" 
     max_args = 1
-    allowed_kwargs = ('field_names', 'paginate_by', 'table_class', 
+    allowed_kwargs = ('field_accessors', 'paginate_by', 'table_class', 
                       'checkbox_column', 'primary_key_column', 'help_text')
 
-    def get_field(self, model, field_name):
+    def get_field(self, model, field_accessor):
+        """Given the field_accessor and model, returns the field object. Follow
+        ForeignKey relations specified using the __ notation."""
         rmodel = model
         field = None
-        for token in field_name.split('__'):
+        for token in field_accessor.split('__'):
             model = rmodel
             field = model._meta.get_field(token)
             if isinstance(field.rel, models.ManyToOneRel) or \
@@ -31,10 +33,10 @@ class CoffeeTableNode(BaseNode):
         (object_list,) = tag_args
         try:
             fields = []
-            for field_name in tag_kwargs['field_names'].split(','):
-                field_name = field_name.strip()
-                field = self.get_field(object_list.model, field_name)
-                fields.append((field_name, field))
+            for field_accessor in tag_kwargs['field_accessors'].split(','):
+                field_accessor = field_accessor.strip()
+                field = self.get_field(object_list.model, field_accessor)
+                fields.append((field_accessor, field))
         except:
             fields = []
             for field in object_list.model._meta.fields:
@@ -44,8 +46,8 @@ class CoffeeTableNode(BaseNode):
         # optimize the object_list - queryset using select_related
         object_list = object_list.select_related(*[f for f,_ in fields])
         context['object_list'] = object_list
-
         context.update(tag_kwargs)
+        return get_template("coffee_table/coffee_table.html").render(context)
         return get_template("coffee_table/coffee_table.html").render(context)
 
 @register.filter
@@ -57,8 +59,9 @@ def get_field_type(field):
     return type_str.split('.')[-1]
 
 @register.filter
-def get_field_value(obj, field_name):
-    """Returns value for the given field for a given object"""
-    for token in field_name.split('__'):
+def get_field_value(obj, field_accessor):
+    """Returns value for the given field for a given object. Follow ForeignKey
+    relations specified by the __ notation."""
+    for token in field_accessor.split('__'):
         obj = getattr(obj, token.strip())
     return obj

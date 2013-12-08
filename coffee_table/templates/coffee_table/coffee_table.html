@@ -17,7 +17,7 @@
                             <th class="select"><input type="checkbox"></th>
                         {% endif %}
 
-                        {% for field_name, field in fields %}
+                        {% for field_accessor, field in fields %}
                             {% if primary_key_column %}
                                 <th>
                                     {% sort_link field.verbose_name|title field.name %}
@@ -49,7 +49,7 @@
                 {% if checkbox_column %}
                     <td><input type="checkbox" name="action-select" value="{{ object.pk }}"></td>
                 {% endif %}
-                {% for field_name, field in fields %}
+                {% for field_accessor, field in fields %}
                     {% if primary_key_column %}
                         <td>{% include 'coffee_table/field.html' %}</td>
                     {% else %}

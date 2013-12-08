@@ -12,7 +12,7 @@
   </head>
   <body>
 	<div class="container">
-		{% coffee_table object_list field_names='name, content_type__app_label' paginate_by=10 table_class='table table-bordered' checkbox_column=True primary_key_column=True help_text=True %}
+		{% coffee_table object_list field_accessors='name, content_type__app_label' paginate_by=10 table_class='table table-bordered' checkbox_column=True primary_key_column=True help_text=True %}
 	</div>
     <script type="text/javascript" src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
