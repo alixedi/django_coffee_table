@@ -12,7 +12,9 @@ django_coffee_table
         :target: https://crate.io/packages/django_coffee_table?version=latest
 
 
-Control of tables in templates sans BS.
+Control of tables in templates sans BS. 
+
+Coffee Table now supports following ForeignKey relations using the familiar '__' notation. The icing on the cake: Coffee Table will automatically optimize your query using select_related so that each page of the table will generate a single SQL query! 
 
 Installation
 ------------
@@ -43,9 +45,11 @@ Read on:
 
 5. Advanced usage::
 
-    {% coffee_table object_list field_accessors='name, content_type' 
+    {% coffee_table object_list field_accessors='name, content_type__app_label' 
                                 paginate_by='10' 
                                 table_class='table table-condensed' 
                                 checkbox_column=True 
                                 primary_key_column=True 
                                 help_text=True %}
+
+Please see the included demo project for more help on usage etc. Dont forget to star the repository on Github if you find this useful. A little encouragement goes a long way in helping me stay mtivated. 
