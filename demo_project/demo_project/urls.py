@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, url
 from django.views.generic import ListView
-from django.contrib.auth.models import Permission
+from django.contrib.auth.models import Permission, User, Group
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin

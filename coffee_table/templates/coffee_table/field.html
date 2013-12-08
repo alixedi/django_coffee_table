@@ -1,6 +1,6 @@
 {% load coffee_table humanize %}
 
-{% with field_type=field|get_field_type field_value=object|get_field_value:field.name %}
+{% with field_type=field|get_field_type field_value=object|get_field_value:field_name %}
 
 {% if field_type == 'EmailField' or field_type == 'URLField' %}
 {{ field_value|urlize }}

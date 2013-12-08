@@ -103,6 +103,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'linaro_django_pagination.middleware.PaginationMiddleware',
 )
 
@@ -134,6 +135,7 @@ INSTALLED_APPS = (
     'linaro_django_pagination',
     'tag_parser',
     'coffee_table',
+    'debug_toolbar',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
@@ -177,3 +179,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
     "django.core.context_processors.request",
 )
+
+# settings for django debug toolbar
+INTERNAL_IPS = ('127.0.0.1',)
+
