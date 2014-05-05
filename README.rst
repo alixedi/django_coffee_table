@@ -26,12 +26,13 @@ we are at the cheeseshop: ::
 Usage
 -----
 
-Read on: 
+Read on:
 
 1. Set up dependencies according to the given docs:
-    * `linaro-django-pagination <https://pypi.python.org/pypi/linaro-django-pagination/>`_
-    * `django-sort <https://pypi.python.org/pypi/django-sort/0.1>`_ 
-    * `django-tag-parser <https://pypi.python.org/pypi/django-tag-parser>`_ 
+
+* `linaro-django-pagination <https://pypi.python.org/pypi/linaro-django-pagination/>`_
+* `django-sort <https://pypi.python.org/pypi/django-sort/0.1>`_ 
+* `django-tag-parser <https://pypi.python.org/pypi/django-tag-parser>`_ 
 
 2. Include `django_coffee_table` in your `INSTALLED_APPS` settings.
 
