@@ -10,4 +10,4 @@ python:
 install: pip install -r requirements-test.txt
 
 # command to run tests, e.g. python setup.py test
-script: python runtests.py
+script: python coffee_table/testproject/manage.py test
