@@ -29,10 +29,12 @@ records = [{'part': 'I', 'name': 'The Phantom Menace', 'medium': 'Film'},
 class TestCoffeeTable(unittest.TestCase):
 
     def setUp(self):
-        pass
+    	for record in records:
+    		StarWar.objects.create(**record)
+
 
     def test_something(self):
-        pass
+    	print StarWar.objects.all()
 
     def tearDown(self):
         pass
