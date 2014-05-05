@@ -1,0 +1,86 @@
+[
+{
+    "pk": 1, 
+    "model": "testapp.medium", 
+    "fields": {
+        "name": "TV"
+    }
+},
+{
+    "pk": 2, 
+    "model": "testapp.medium", 
+    "fields": {
+        "name": "Film"
+    }
+},
+{
+    "pk": 3, 
+    "model": "testapp.medium", 
+    "fields": {
+        "name": "Book"
+    }
+},
+{
+    "pk": 4, 
+    "model": "testapp.medium", 
+    "fields": {
+        "name": "Game"
+    }
+},
+{
+    "pk": 1, 
+    "model": "testapp.starwar", 
+    "fields": {
+        "medium": 3, 
+        "name": "Star Wars"
+    }
+},
+{
+    "pk": 2, 
+    "model": "testapp.starwar", 
+    "fields": {
+        "medium": 2, 
+        "name": "The Phantom Menice"
+    }
+},
+{
+    "pk": 3, 
+    "model": "testapp.starwar", 
+    "fields": {
+        "medium": 2, 
+        "name": "Return of the Jedi"
+    }
+},
+{
+    "pk": 4, 
+    "model": "testapp.starwar", 
+    "fields": {
+        "medium": 1, 
+        "name": "Caravan of Courage"
+    }
+},
+{
+    "pk": 5, 
+    "model": "testapp.starwar", 
+    "fields": {
+        "medium": 1, 
+        "name": "The Clone Wars"
+    }
+},
+{
+    "pk": 6, 
+    "model": "testapp.starwar", 
+    "fields": {
+        "medium": 4, 
+        "name": "Rebel Alliance"
+    }
+},
+{
+    "pk": 7, 
+    "model": "testapp.starwar", 
+    "fields": {
+        "medium": 4, 
+        "name": "Empire At War"
+    }
+}
+]

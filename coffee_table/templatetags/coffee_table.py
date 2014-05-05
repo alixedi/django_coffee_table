@@ -48,7 +48,6 @@ class CoffeeTableNode(BaseNode):
         context['object_list'] = object_list
         context.update(tag_kwargs)
         return get_template("coffee_table/coffee_table.html").render(context)
-        return get_template("coffee_table/coffee_table.html").render(context)
 
 @register.filter
 def get_field_type(field):
