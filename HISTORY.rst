@@ -28,6 +28,7 @@ History
 
 * Support for automatic queryset optimization using select_related.
 
+1.0.0 (2014-05-27)
+++++++++++++++++++
 
-
-
+* First stable release after gtting to 98% test coverage.
