@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Django coffee table by alixedi</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/alixedi/django_coffee_table">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Django coffee table</h1>
+            <h2>Control of tables in templates sans BS.</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/alixedi/django_coffee_table/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/alixedi/django_coffee_table/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>
+<a name="django_coffee_table" class="anchor" href="#django_coffee_table"><span class="octicon octicon-link"></span></a>django_coffee_table</h1>
+
+<p><a href="http://badge.fury.io/py/django_coffee_table"><img src="https://badge.fury.io/py/django_coffee_table.png" alt="PyPI package"></a>
+<a href="https://crate.io/packages/django_coffee_table?version=latest"><img src="https://pypip.in/d/django_coffee_table/badge.png" alt="PyPI downloads"></a>
+<a href="https://travis-ci.org/alixedi/django_coffee_table"><img src="https://travis-ci.org/alixedi/django_coffee_table.png?branch=master" alt="Travis"></a>
+<a href="https://coveralls.io/r/alixedi/django_coffee_table?branch=master"><img src="https://coveralls.io/repos/alixedi/django_coffee_table/badge.png?branch=master" alt="Coverage Status"></a></p>
+
+<p>Control of html tables - paging, sorting, css, checkbox column, primary-key column, help text, custom columns, model field columns, foreign key field columns etc. in templates with a beautiful declarative syntax.</p>
+
+<p>If the above is not enough, Coffee Table will automatically optimize your query using select_related so that each page of the table will be rendered by a single SQL query.</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>CoffeeTable is at the cheeseshop: :</p>
+
+<pre><code>pip install django_coffee_table
+</code></pre>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>To use coffee_table in your project:</p>
+
+<ol>
+<li><p>Set up dependencies according to their respective documentation:</p></li>
+</ol><ul>
+<li>  [linaro-django-pagination][]</li>
+<li>  [django-resort][]</li>
+<li><p>[django-tag-parser][]</p></li>
+</ul><ol>
+<li> Include django_coffee_table in your INSTALLED_APPS.</li>
+<li>
+<p>Open your template and load up the coffee_table tags library:</p>
+
+<pre><code>{% load coffee_table %}
+</code></pre>
+</li>
+<li>
+<p>Basic usage:</p>
+
+<pre><code>{% coffee_table object_list %}
+</code></pre>
+</li>
+<li>
+<p>Advanced usage:</p>
+
+<pre><code>{% coffee_table object_list field_accessors='name, content_type__app_label'
+                            paginate_by='10'
+                            table_class='table table-condensed'
+                            checkbox_column=True
+                            primary_key_column=True
+                            help_text=True %}
+</code></pre>
+</li>
+</ol><p>Please see the included test project for more help.</p>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/alixedi">alixedi</a> can be found on <a href="https://github.com/alixedi/django_coffee_table">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-51375524-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
