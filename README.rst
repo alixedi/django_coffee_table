@@ -11,6 +11,9 @@ django_coffee_table
 .. image:: https://pypip.in/d/django_coffee_table/badge.png
         :target: https://crate.io/packages/django_coffee_table?version=latest
 
+.. image:: https://coveralls.io/repos/alixedi/django_coffee_table/badge.png?branch=master
+  :target: https://coveralls.io/r/alixedi/django_coffee_table?branch=master
+
 
 Control of html tables - paging, sorting, css, checkbox column, primary-key column, help text,  custom columns, model field columns, foreign key field columns etc. in templates with a beautiful declarative syntax.
 
