@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% load coffee_table %}
+  {% coffee_table object_list field_accessors='name, medium__name' paginate_by='5' table_class='table table-condensed' checkbox_column=True primary_key_column=True help_text=True %}
+{% endblock %}

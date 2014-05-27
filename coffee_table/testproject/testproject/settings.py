@@ -126,6 +126,8 @@ INSTALLED_APPS = (
     'linaro_django_pagination',
     'resort',
     'django_nose',
+    # apps below are only used for testing
+    'with_asserts',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'

@@ -8,3 +8,4 @@ django-nose>=1.2
 linaro-django-pagination
 django-resort
 django-tag-parser
+django-with-asserts
