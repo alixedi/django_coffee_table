@@ -54,7 +54,7 @@
 <a href="https://travis-ci.org/alixedi/django_coffee_table"><img src="https://travis-ci.org/alixedi/django_coffee_table.png?branch=master" alt="Travis"></a>
 <a href="https://coveralls.io/r/alixedi/django_coffee_table?branch=master"><img src="https://coveralls.io/repos/alixedi/django_coffee_table/badge.png?branch=master" alt="Coverage Status"></a></p>
 
-<p>Control of html tables - paging, sorting, css, checkbox column, primary-key column, help text, custom columns, model field columns, foreign key field columns etc. in templates with a beautiful declarative syntax.</p>
+<p>Control html tables - paging, sorting, css, checkbox column, primary-key column, help text, custom columns, model field columns, foreign key field columns etc. in templates with a beautiful declarative syntax.</p>
 
 <p>If the above is not enough, Coffee Table will automatically optimize your query using select_related so that each page of the table will be rendered by a single SQL query.</p>
 
@@ -72,13 +72,20 @@
 <p>To use coffee_table in your project:</p>
 
 <ol>
-<li><p>Set up dependencies according to their respective documentation:</p></li>
-</ol><ul>
-<li>  [linaro-django-pagination][]</li>
-<li>  [django-resort][]</li>
-<li><p>[django-tag-parser][]</p></li>
-</ul><ol>
-<li> Include django_coffee_table in your INSTALLED_APPS.</li>
+<li>
+<p>Set up dependencies according to their respective documentation:</p>
+
+<ul>
+<li>  <a href="https://pypi.python.org/pypi/linaro-django-pagination/2.0.2">linaro-django-pagination</a>
+</li>
+<li>  <a href="https://pypi.python.org/pypi/django_resort/0.1.0">django-resort</a>
+</li>
+<li>  <a href="https://pypi.python.org/pypi/django-tag-parser/1.0.3">django-tag-parser</a>
+</li>
+</ul>
+</li>
+</ol><ol>
+<li><p>Include django_coffee_table in your INSTALLED_APPS.</p></li>
 <li>
 <p>Open your template and load up the coffee_table tags library:</p>
 
@@ -94,12 +101,14 @@
 <li>
 <p>Advanced usage:</p>
 
-<pre><code>{% coffee_table object_list field_accessors='name, content_type__app_label'
-                            paginate_by='10'
-                            table_class='table table-condensed'
-                            checkbox_column=True
-                            primary_key_column=True
-                            help_text=True %}
+<pre><code>{% coffee_table 
+   object_list 
+   field_accessors='name, content_type__app_label'
+   paginate_by='10'
+   table_class='table table-condensed'
+   checkbox_column=True
+   primary_key_column=True
+   help_text=True %}
 </code></pre>
 </li>
 </ol><p>Please see the included test project for more help.</p>
