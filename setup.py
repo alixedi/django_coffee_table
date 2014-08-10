@@ -37,7 +37,7 @@ setup(
     include_package_data=True,
     install_requires=[
         'linaro-django-pagination',
-        'django-sort',
+        'django-resort',
         'django-tag-parser',
     ],
     license="BSD",
